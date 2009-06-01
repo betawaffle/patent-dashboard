@@ -1,0 +1,16 @@
+<% content_for :sidebar do -%>
+  <div>
+    <ul>
+      <li><%= link_to 'How to use Textile', 'http://www.textism.com/tools/textile/' %></li>
+    </ul>
+  </div>
+<% end -%>
+<% tab 'Show', @page -%>
+<% tab 'Edit', edit_page_path, :class => 'active' -%>
+<% tab 'History' -%>
+<% form_for @page do |f| -%>
+<% div_for @page, :class => 'box' do %>
+  <%= f.text_area :content, :size => '' %><br />
+<% end -%>
+  <%= f.submit %>
+<% end -%>

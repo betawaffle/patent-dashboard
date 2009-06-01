@@ -1,0 +1,18 @@
+<% data = @feed.data -%>
+<% if data.is_a? RSS::Atom::Feed -%>
+  <%- data.items.each do |item| -%>
+    <div id="<%= item.id.content %>" class="box">
+      <h3><%= link_to item.title.content, item.link.href %></h3>
+      <div>Posted <%= time_ago_in_words Time.parse(item.updated.to_s) %> ago</div>
+      <div class="content"><%= item.content.content %></div>
+    </div>
+  <%- end -%>
+<% elsif data.is_a? RSS::Rss -%>
+  <%- data.items.each do |item| -%>
+    <div id="<%# item.id.content %>" class="box">
+      <h3><%= link_to item.title, item.link %></h3>
+      <div>Posted <%= time_ago_in_words Time.parse(item.pubDate.to_s) %> ago</div>
+      <div class="content"><%= item.description %></div>
+    </div>
+  <%- end -%>
+<% end -%>

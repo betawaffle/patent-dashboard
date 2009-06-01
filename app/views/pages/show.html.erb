@@ -1,0 +1,13 @@
+<% tab 'Show', @page, :class => 'active' -%>
+<% tab 'Edit', edit_page_path -%>
+<% tab 'History', page_revision_path(@page, @page.page_revisions.last) -%>
+<% div_for @page, :class => 'box' do %>
+  <%= eval(@page.compiled) %>
+  <div id="referenced" class="box bottom">Referenced by:
+  <%- if @page.orphan? -%>
+    <span>Nothing</span>
+  <%- else -%>
+    <span><%= @page.back_referenced_pages.collect { |page| link_to page.name, page }.to_sentence %></span>
+  <%- end -%>
+  </div>
+<% end %>

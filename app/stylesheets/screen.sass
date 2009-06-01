@@ -1,0 +1,173 @@
+@import partial:reset
+@import partial:grid
+@import partial:typography
+@import partial:forms
+
+!white = #FFF8E8
+!brown = #453C35
+!yellow = #FFE09A
+!orange = #FF916D
+!blue = #3977E8
+!red = #DD5030
+
+!background_color = !white
+
+!link_color = #333
+!link_hover = !link_color - #888
+
+!line_height = 1.5em
+!sidebar_spacing = 1.5em
+!tab_spacing = 5px
+
+!box_background = white
+!box_border = !background_color - #555
+=box
+  :background = !box_background
+  :border = 1px solid !box_border
+  :padding 10px
+  .box
+    :background = !background_color
+  
+
+.box
+  +box
+
+
+body
+  :background = !background_color
+
+a
+  :color = !link_color
+  :text
+    :decoration none
+  &.broken
+    :background #EEE
+    :color #666
+    &:after
+      :content '?'
+    
+  
+  &:hover
+    :color = !link_hover
+    :text
+      :decoration underline
+  
+  &[href^='http://rubyonrails.org']:hover
+    :color #981A21
+  
+  &[href^='http://www.prototypejs.org']:hover
+    :color #2050AC
+  
+
+
+#content
+  +span_16
+  #tabs
+    :float right
+    :list-style-type none
+    :margin-top = -!line_height - 0.5em
+    a, span 
+      :background = !box_border + #333
+      :border = 1px solid !box_border
+      :display inline-block
+      :padding 0.25em 10px
+      :margin
+        :left = !tab_spacing
+        :top -1px
+      :opacity 0.5
+      &:hover 
+        :color white
+        :text
+          :decoration none
+        :opacity 1
+      
+    
+    a.active 
+      :background = !box_background
+      :border
+        :bottom = 1px solid !box_background
+      :opacity 1
+      &:hover 
+        :background = !box_background
+        :border
+          :bottom = 1px solid !box_background
+        :color = !link_hover
+      
+    
+    a:hover 
+      :background = !blue
+      :border-color = !blue - #222
+    
+    span:hover 
+      :background = !red
+      :border-color = !red - #222
+    
+  
+  textarea
+    +box
+    :padding 0
+    :border none
+    :margin
+      :top 0px
+      :bottom 0px
+    :width = 100%
+  
+  input[type=submit]
+    +box
+    :background = !brown + #555
+    :border-color = !brown + #222
+  
+
+#sidebar 
+  +span_8
+  +last
+  :margin
+    :top -1.5em
+  div 
+    h3 
+      :margin
+        :bottom -1px
+        :left 10px
+    
+    ul 
+      +box
+      :list-style-type none
+      :margin
+        :left 0
+        :right 0
+        :top 1px
+    
+  
+
+#header 
+  :margin
+    :top 1.5em
+    :bottom 0
+  h1 
+    :margin
+      :bottom 0
+    sub 
+      :color = !blue
+      :font
+        :size 40%
+      :position relative
+      :left 10px
+      :top -1.3em
+    
+  
+  #nav 
+    a 
+      :display inline-block
+      :font-size 1.5em
+      :text
+        :align center
+      :width = !container_width / 7
+    
+  
+
+#footer 
+  :font-size 85%
+  :margin-bottom = !line_height
+  :text
+    :align center
+

@@ -1,0 +1,30 @@
+en:
+  application:
+    title: Men of Patent
+    index:
+      title: 'Listing {{controller_name}}'
+    
+    show:
+      title: '{{controller}} | '
+  
+  pages:
+    title: Wiki
+    show:
+      title: '{{controller}} | {{page_name}}'
+    
+    edit:
+      title: '{{controller}} | Editing "{{page_name}}"'
+    
+  
+  page_revisions:
+    title: Wiki
+  
+  navigation:
+    blogs: Blogs
+    clients: Clients
+    directories: Directories
+    forms: Forms
+    root: Home
+    websites: Websites
+    wiki: Wiki
+  

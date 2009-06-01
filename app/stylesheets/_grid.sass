@@ -1,0 +1,95 @@
+@grid 24, 30px, 10px
+
+.container
+  :width = !container_width
+  :margin 0 auto
+
+.showgrid
+  :background url(src/grid.png)
+
+.border
+  :padding-right 4px
+  :margin-right 5px
+  :border-right 1px solid #EEE
+
+.colborder
+  :padding-right 24px
+  :margin-right 25px
+  :border-right 1px solid #EEE
+
+.pull-1
+  :margin-left = !append_1 * -1
+
+.pull-2
+  :margin-left = !append_2 * -1
+
+.pull-3
+  :margin-left = !append_3 * -1
+
+.pull-4
+  :margin-left = !append_4 * -1
+
+.pull-5
+  :margin-left = !append_5 * -1
+
+.pull-1, .pull-2, .pull-3, .pull-4, .pull-5
+  :float left
+  :position relative
+
+.push-1
+  :margin = 0 (!append_1 * -1) 1.5em !append_1
+
+.push-2
+  :margin = 0 (!append_2 * -1) 1.5em !append_2
+
+.push-3
+  :margin = 0 (!append_3 * -1) 1.5em !append_3
+
+.push-4
+  :margin = 0 (!append_4 * -1) 1.5em !append_4
+
+.push-5
+  :margin = 0 (!append_5 * -1) 1.5em !append_5
+
+.push-1, .push-2, .push-3, .push-4, .push-5
+  :float right
+  :position relative
+
+.prepend-top
+  :margin-top 1.5em
+
+.append-bottom
+  :margin-bottom 1.5em
+
+.box
+  :padding 1.5em
+  :margin-bottom 1.5em
+  :background #E5ECF9
+
+hr
+  :background #DDD
+  :color #DDD
+  :clear both
+  :float none
+  :width 100%
+  :height 0.1em
+  :margin 0 0 1.45em
+  :border none
+  &.space
+    :background white
+    :color white
+  
+
+.clearfix:after, .container:after
+  :content "\0020"
+  :display block
+  :height 0
+  :clear both
+  :visibility hidden
+  :overflow hidden
+
+.clearfix, .container
+  :display block
+
+.clear
+  :clear both

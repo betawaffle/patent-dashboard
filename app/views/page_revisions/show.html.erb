@@ -1,0 +1,17 @@
+<%# title_options :page => @page.name %>
+<%# content_for :subtitle, l(@page_revision.created_at, :format => :as_of) %>
+<% content_for :sidebar do -%>
+  <div>
+    <ul>
+      <%- @page.page_revisions.each do |page_revision| -%>
+      <li><%= link_to l(page_revision.created_at, :format => :long), page_revision_path(@page, page_revision) %></li>
+      <%- end -%>
+    </ul>
+  </div>
+<% end -%>
+<% tab 'Show', @page -%>
+<% tab 'Edit', edit_page_path(@page) -%>
+<% tab 'History', page_revision_path(@page, @page.page_revisions.last), :class => 'active' -%>
+<% div_for @page_revision, :class => 'box' do %>
+  <%= eval(@page_revision.compiled) %>
+<% end %>

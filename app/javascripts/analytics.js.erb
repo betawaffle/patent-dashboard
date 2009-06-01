@@ -1,0 +1,9 @@
+function crossSiteLink(link) {
+  $(link).addEvent('click', function(e) { e.stop(); pageTracker._link(this.href) })
+}
+
+function crossSiteForm(form) {
+  $(form).addEvent('click', function(e) { e.stop(); pageTracker._linkByPost(this) })
+}
+
+window.addEvent('domready', function() { $$('a').each(crossSiteLink); $$('form').each(crossSiteForm) })

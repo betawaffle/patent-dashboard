@@ -1,0 +1,52 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= locale %>" lang="<%= locale %>">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <title><%= @feed.title.content %></title>
+  
+  <!-- Blueprint -->
+  <%= stylesheet_link_tag 'screen', :media => 'screen, projection' %>
+  <%= stylesheet_link_tag 'print', :media => 'print' %>
+  <!--[if IE]>
+    <%= stylesheet_link_tag 'ie', :media => 'screen, projection' %>
+  <![endif]-->
+  
+  <%= stylesheet_link_tag 'test', :media => 'screen, projection' %>
+  
+  <!-- Prototype -->
+  <%= prototype_include_tag %>
+  
+  <!-- script.aculo.us -->
+  <%= scriptaculous_include_tag %>
+</head>
+<body>
+  <div id="header" class="container">
+    <h1><%= @feed.title.content %></h1>
+    <div id="nav"><%= nav :root, :clients, :forms, :directories, :websites, :blogs, :wiki %></div>
+  </div>
+  
+  <div class="container">
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="sidebar">
+      <div class="box">
+        <h3>Sidebar</h3>
+        <%# @feed.items.collect { |item| link_to(item.title.content, item.link.href) + '<br />' } %>
+      </div>
+    </div>
+  </div>
+  
+  <div id="footer" class="container">
+    <div id="copyright">&copy; 2009 Andrew Hodges</div>
+    <div id="poweredby">Powered by
+      <%= link_to 'Ruby on Rails', 'http://rubyonrails.org' %> and
+      <%= link_to 'Prototype', 'http://www.prototypejs.org' %>.
+    </div>
+  </div>
+</body>
+</html>
